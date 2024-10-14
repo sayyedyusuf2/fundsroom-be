@@ -30,9 +30,10 @@ exports.hashPayment = async (req, res) => {
 
 exports.handlePaymentSuccess = async (req, res) => {
     try {
+        console.log(req.method)
         console.log(req.body)
         // const result = await payUService.hashPayment(req.body)
-        // return res.status(200).json(responseFormatter(result, 'Successfully hashed', 'success', 200))
+        return res.status(200).json(responseFormatter({}, 'Successfully hashed', 'success', 200))
     } catch (e) {
         if (e.isCustomError) {
             return res.status(e.status).json(responseFormatter({}, e.message, 'error', e.status))
@@ -44,9 +45,10 @@ exports.handlePaymentSuccess = async (req, res) => {
 
 exports.handlePaymentFailure = async (req, res) => {
     try {
+        console.log(req.method)
         console.log(req.body)
         // const result = await payUService.hashPayment(req.body)
-        // return res.status(200).json(responseFormatter(result, 'Successfully hashed', 'success', 200))
+        return res.status(200).json(responseFormatter({}, 'Successfully hashed', 'success', 200))
     } catch (e) {
         if (e.isCustomError) {
             return res.status(e.status).json(responseFormatter({}, e.message, 'error', e.status))

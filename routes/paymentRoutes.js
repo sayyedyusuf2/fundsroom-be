@@ -9,9 +9,11 @@ router.post('/', paymentController.makePayment)
 
 /* Hash Payment */
 router.post('/success', paymentController.handlePaymentSuccess)
+router.get('/success', paymentController.handlePaymentSuccess)
 
 /* Hash Payment */
 router.post('/failure', paymentController.handlePaymentFailure)
+router.get('/failure', paymentController.handlePaymentFailure)
 
 router.use(validateToken, checkUserExist)
 
