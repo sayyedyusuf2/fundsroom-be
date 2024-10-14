@@ -24,7 +24,7 @@ const validateToken = async (req, res, next) => {
 const checkUserExist = async (req, res, next) => {
     try {
         const userId = req.userId
-        const user = await User.findById(userId, {}, {lean: true})
+        const user = await User.findByPk(userId)
         if (!user) customErrorFormatter('No such user', 401)
         req.user = user
         return next()

@@ -27,7 +27,7 @@ class UserService {
             if (!user) customErrorFormatter('User does not exist.', 404)
             const isValidPassword = await commonFunctions.comparePassword(password, user.password)
             if (!isValidPassword) customErrorFormatter('Invalid username or password.', 401)
-            const token = await commonFunctions.generateToken(user._id)
+            const token = await commonFunctions.generateToken(user.id)
             delete user.dataValues.password
             return {user, token}
         } catch (e) {
