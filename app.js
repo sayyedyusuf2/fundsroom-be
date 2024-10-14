@@ -16,6 +16,8 @@ app.use(rateLimiter)
 app.use(cors())
 app.use(helmet())
 
+app.use(express.urlencoded({extended: true}))
+
 /* Parsing JSON body and limitng payload size */
 const payloadSizeHandler = require('./middlewares/payloadSizeHandler.js')
 app.use(express.json({limit: '10kb'}))
